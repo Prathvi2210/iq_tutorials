@@ -34,7 +34,27 @@ wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.App
 ```
 Change permissions and run 
 ```
-chmod +x ./QGroundControl.AppImage 
+chmod +x ./QGroundControl.AppImage
+```
+Runninf the software
+```
+sudo apt update
+sudo apt install fuse
+sudo apt install libfuse2
+
+sudo apt install gstreamer1.0-gl
+sudo apt install gstreamer1.0-plugins-bad gstreamer1.0-libav
+
+#xcb libraries
+sudo apt install --reinstall libxcb-xinerama0 libx11-xcb1 libxcb1 libxcb-render0 libxcb-shape0 libxcb-randr0 libxcb-glx0
+
+#Qt libraries
+sudo apt install qtbase5-dev qt5-qmake qtbase5-dev-tools
+sudo apt install qtbase5-dev qt5-qmake qtbase5-dev-tools libxcb-xinerama0 libx11-xcb1 libxcb1 libxcb-render0 libxcb-shape0 libxcb-randr0 libxcb-glx0
+
+#Setting env. variable for debugging and more detailed error messages
+export QT_DEBUG_PLUGINS=1
+
 ./QGroundControl.AppImage  (or double click)
 ```
 
