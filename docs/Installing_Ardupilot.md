@@ -7,11 +7,12 @@
 In home directory:
 ```
 cd ~
-sudo apt install git
-git clone https://github.com/ArduPilot/ardupilot.git
+sudo apt-get update
+sudo apt-get install git
+git clone --recursive -submodules https://github.com/ArduPilot/ardupilot.git
 cd ardupilot
 git checkout Copter-3.6
-git submodule update --init --recursive
+#git submodule update --init --recursive
 ```
 
 ## Install dependencies:
