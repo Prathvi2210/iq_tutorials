@@ -9,10 +9,9 @@ In home directory:
 cd ~
 sudo apt-get update
 sudo apt-get install git
-git clone --recursive -submodules https://github.com/ArduPilot/ardupilot.git
-cd ardupilot
+git clone https://github.com/ArduPilot/ardupilot.git
 git checkout Copter-3.6
-#git submodule update --init --recursive
+git submodule update --init --recursive
 ```
 
 ## Install dependencies:
@@ -50,4 +49,25 @@ Run SITL (Software In The Loop) once to set params:
 cd ~/ardupilot/ArduCopter
 sim_vehicle.py -w
 ```
-
+###The Techno guys channel##
+```
+cd ~
+sudo apt-get update
+sudo apt-get install git
+git clone --recursive -submodules https://github.com/ArduPilot/ardupilot.git
+cd ardupilot
+```
+#Install dependencies#
+```
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+. ~/.profile
+```
+#configure for specific vehicle
+```
+./waf configure --board sitl
+./waf copter
+```
+#Run for Arducopter
+```
+./Tools/autotest/sim_vehicle.py -v ArduCopter --console --map
+```
