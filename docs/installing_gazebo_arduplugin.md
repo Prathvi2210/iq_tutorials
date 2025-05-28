@@ -35,7 +35,7 @@ sudo apt install gazebo9 libgazebo9-dev
 sudo apt-get install gazebo11 libgazebo11-dev
 ```
 
-### Ubuntu [***24.04.1***] (Gazebo Harmonic)
+### Ubuntu [***22.04.5***] (Gazebo Harmonic)
 ```
 sudo apt-get install lsb-release gnupg
 
