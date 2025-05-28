@@ -70,4 +70,6 @@ Tools/environment_install/install-prereqs-ubuntu.sh -y
 #Run for Arducopter
 ```
 ./Tools/autotest/sim_vehicle.py -v ArduCopter --console --map
+# or
+sim_vehicle.py -v ArduCopter --console --map
 ```
