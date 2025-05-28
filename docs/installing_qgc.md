@@ -64,4 +64,8 @@ export QT_DEBUG_PLUGINS=1
 cd ~/ardupilot/ArduCopter/
 sim_vehicle.py
 ```
+If the sitl is not connecting to the QGC make a comms port in QGC comm setting. For ex: make a udp port of address 14550 and run the following command:
+```
+sim_vehicle.py --out=udp:0.0.0.0:14550
+```
 
