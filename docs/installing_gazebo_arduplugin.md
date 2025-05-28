@@ -37,7 +37,7 @@ sudo apt-get install gazebo11 libgazebo11-dev
 
 ### Ubuntu [***22.04.5***] (Gazebo Harmonic)
 ```
-sudo apt-get install lsb-release gnupg
+sudo apt-get install curl lsb-release gnupg
 
 sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 
