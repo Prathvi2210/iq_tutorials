@@ -50,7 +50,7 @@ sudo apt-get install gz-harmonic
 for more detailed instructions for installing gazebo checkout http://gazebosim.org/tutorials?tut=install_ubuntu
 
 
-## Install Gazebo plugin for APM (ArduPilot Master) :
+## Install Gazebo plugin for APM (ArduPilot Master) %This is for Gazebo Classic:
 ```
 cd ~
 git clone https://github.com/khancyr/ardupilot_gazebo.git
@@ -67,6 +67,19 @@ cd build
 cmake ..
 make -j4
 sudo make install
+```
+
+## For Gazebo Harmonic ##
+
+```
+# Clone the plugin for Gazebo (Ignition/Harmonic)
+git clone https://github.com/ArduPilot/ardupilot_gz.git
+cd ardupilot_gz
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+
 ```
 ```
 echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
