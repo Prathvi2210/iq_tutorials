@@ -30,7 +30,7 @@ Install Gazebo:
 ```
 sudo apt install gazebo9 libgazebo9-dev
 ```
-### Ubuntu [***20.04***]
+### Ubuntu [***20.04***] (Gazebo classic = Gazebo 11)
 ```
 sudo apt-get install gazebo11 libgazebo11-dev
 ```
