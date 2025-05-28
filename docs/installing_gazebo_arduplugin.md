@@ -76,7 +76,9 @@ sudo make install
 git clone https://github.com/ArduPilot/ardupilot_gz.git
 cd ardupilot_gz
 mkdir build && cd build
-cmake ..
+# no need to use cmake ..
+# ardupilot_gz is designed to be built as part of the Ardupilot SITL + Gazebo Integration.
+# It can be built during configuring the ardupilot repo itself
 make -j$(nproc)
 sudo make install
 
