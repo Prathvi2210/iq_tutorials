@@ -68,30 +68,42 @@ cmake ..
 make -j4
 sudo make install
 ```
-
-## For Gazebo Harmonic ##
-
-```
-# Clone the plugin for Gazebo (Ignition/Harmonic)
-git clone https://github.com/ArduPilot/ardupilot_gz.git
-cd ardupilot_gz
-mkdir build && cd build
-# no need to use cmake ..
-# ardupilot_gz is designed to be built as part of the Ardupilot SITL + Gazebo Integration.
-# It can be built during configuring the ardupilot repo itself
-make -j$(nproc)
-sudo make install
-
-```
-```
-echo 'source /usr/share/gazebo/setup.sh' >> ~/.bashrc
-```
 Set paths for models:
 ```
 echo 'export GAZEBO_MODEL_PATH=~/ardupilot_gazebo/models' >> ~/.bashrc
 . ~/.bashrc
 ```
+###For Gazebo Harmonic in Ubuntu 22.04.5###
+```sudo apt update
+sudo apt install libgz-sim8-dev rapidjson-dev
+sudo apt install libopencv-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl
 
+mkdir -p ~/gz_ws/src
+cd ~/gz_ws/src
+git clone https://github.com/ArduPilot/ardupilot_gazebo.git
+
+#Building the plugin
+cd ~/gz_ws
+mkdir build
+cd build
+cmake ../src/ardupilot_gazebo
+make -j$(nproc)
+
+#Setting environment variables. Add following lines to your ~/.bashrc to ensure Gazebo finds the plugin and models at #runtime:
+export GZ_SIM_SYSTEM_PLUGIN_PATH=$HOME/gz_ws/build:$GZ_SIM_SYSTEM_PLUGIN_PATH
+export GZ_SIM_RESOURCE_PATH=$HOME/gz_ws/src/ardupilot_gazebo/models:$HOME/gz_ws/src/ardupilot_gazebo/worlds:$GZ_SIM_RESOURCE_PATH
+
+#Reload the shell
+source ~/.bashrc
+
+#Running an example
+#Terminal one: start gazebo
+gz sim -v4 -r iris_runway.sdf
+
+#Terminal two: start ardupilot sitl with gazebo iris model
+sim_vehicle.py -v ArduCopter -f gazebo-iris --model JSON --map --console
+
+```
 ## Run Simulator
 
 **NOTE the iris_arducopter_runway is not currently working in gazebo11. The iq_sim worlds DO work**
